@@ -1,10 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:getit_v2/data/meme.dart';
 import 'package:getit_v2/model/domain_controller.dart';
-
 import '../locator.dart';
+import 'confirm_screen.dart';
 
 
 
@@ -23,6 +22,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("GET IT NOW"),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.games),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => ConfirmScreen(),
+              ));
+            },
+          ),
+        ],
+      ),
       body: Container(
         child: visibleMeme != null
             ? Center(
